@@ -16,7 +16,7 @@ router.post("/subscriber", async (req, res) => {
     db.query(sql, [email], (err, result) => {
       if (err) {
         console.error("Insert Error:", err);
-        return res.status(500).json({ error: err });
+        return res.status(500).json({ error: err.message });
       }
 
       res.status(201).json({
